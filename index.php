@@ -12,9 +12,9 @@ class Genre{
 
 class Movie{
     public $title;
-    public $genre;
+    public Array $genre;
 
-    function __construct($_title, Genre $_genre) {
+    function __construct($_title, Array $_genre) {
         $this->title = $_title;
         $this->genre = $_genre;
     }
@@ -22,9 +22,9 @@ class Movie{
 
 
 
-$insidious = new Movie('Insidious', new Genre('Horror', 'Thriller'));
+$insidious = new Movie('Insidious', [new Genre('Horror','Splatter'), new Genre('Thriller', null)]);
 
-$mile8 = new Movie('8 mile', new Genre('Documentary', 'Rap Battlee'));
+$mile8 = new Movie('8 mile', [new Genre('Documentary','Splice of Life'),new Genre('Musical','Rap Battle')]);
 
 
-var_dump($insidious, $mile8);
+var_dump($insidious);
