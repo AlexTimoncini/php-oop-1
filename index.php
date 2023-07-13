@@ -16,6 +16,12 @@ class Movie{
         $this->title = $_title;
         $this->genre = $_genre;
     }
+
+    public function pegiChecker(){
+        if(in_array("Horror", $this->genre))
+            return 'Are you over 18 years old?';
+        return 'Enjoy the film';
+    }
 }
 $insidious = new Movie('Insidious', ['Horror','Splatter', 'Thriller']);
 $mile8 = new Movie('8 mile', ['Documentary','Splice of Life', 'Musical','Rap Battle']);
@@ -36,12 +42,14 @@ $mile8 = new Movie('8 mile', ['Documentary','Splice of Life', 'Musical','Rap Bat
                     <?php echo $insidious->title ?>
                 </h1>
                 <h2><?php echo implode(' -- ', $insidious->genre) ?></h2>
+                <p><?php echo $insidious->pegiChecker()?></p>
             </div>
             <div class="ivy_movie">
                 <h1>
                     <?php echo $mile8->title ?>
                 </h1>
                 <h2><?php echo implode(' -- ', $mile8->genre) ?></h2>
+                <p><?php echo $mile8->pegiChecker()?></p>
             </div>
         </div>
     </div>
