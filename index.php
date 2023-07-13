@@ -1,15 +1,13 @@
 <?php
-class Genre{
-    public $mainGenre;
-    public $secondGenre;
+// class Genre{
+//     public $mainGenre;
+//     public $secondGenre;
 
-    function __construct($_mainGenre, $_secondGenre) {
-        $this->mainGenre = $_mainGenre;
-        $this->secondGenre = $_secondGenre;
-    }
-}
-
-
+//     function __construct($_mainGenre, $_secondGenre) {
+//         $this->mainGenre = $_mainGenre;
+//         $this->secondGenre = $_secondGenre;
+//     }
+// }
 class Movie{
     public $title;
     public Array $genre;
@@ -19,12 +17,33 @@ class Movie{
         $this->genre = $_genre;
     }
 }
+$insidious = new Movie('Insidious', ['Horror','Splatter', 'Thriller']);
+$mile8 = new Movie('8 mile', ['Documentary','Splice of Life', 'Musical','Rap Battle']);
+?>
 
-
-
-$insidious = new Movie('Insidious', [new Genre('Horror','Splatter'), new Genre('Thriller', null)]);
-
-$mile8 = new Movie('8 mile', [new Genre('Documentary','Splice of Life'),new Genre('Musical','Rap Battle')]);
-
-
-var_dump($insidious);
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movies</title>
+</head>
+<body>
+    <div id="app">
+        <div class="ivy_movies">
+            <div class="ivy_movie">
+                <h1>
+                    <?php echo $insidious->title ?>
+                </h1>
+                <h2><?php echo implode(' -- ', $insidious->genre) ?></h2>
+            </div>
+            <div class="ivy_movie">
+                <h1>
+                    <?php echo $mile8->title ?>
+                </h1>
+                <h2><?php echo implode(' -- ', $mile8->genre) ?></h2>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
