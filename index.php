@@ -1,25 +1,30 @@
 <?php
+class Genre{
+    public $mainGenre;
+    public $secondGenre;
+
+    function __construct($_mainGenre, $_secondGenre) {
+        $this->mainGenre = $_mainGenre;
+        $this->secondGenre = $_secondGenre;
+    }
+}
+
+
 class Movie{
     public $title;
     public $genre;
 
-    public function warning(){
-        if($this->genre === 'Horror'){
-            return 'You must be over 18 years old to watch this film!';
-        }
-        return 'Enjoy the film!';
-    }
-
-    function __construct($_title, $_genre) {
+    function __construct($_title, Genre $_genre) {
         $this->title = $_title;
         $this->genre = $_genre;
     }
 }
 
-$insidious = new Movie('Insidious', 'Horror');
-echo $insidious->warning();
 
-$mile8 = new Movie('8 mile', 'Rap Battle');
-echo $mile8->warning();
+
+$insidious = new Movie('Insidious', new Genre('Horror', 'Thriller'));
+
+$mile8 = new Movie('8 mile', new Genre('Documentary', 'Rap Battlee'));
+
 
 var_dump($insidious, $mile8);
